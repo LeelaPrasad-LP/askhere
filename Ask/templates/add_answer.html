@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content2 %}
+    <form method="POST" class="form-signin"> {% csrf_token %}
+        <div class="container form-display">
+            <p class="question-display">Q){{ question_text }} </p>
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Save </button>
+        </div>
+    </form>
+{% endblock %}
