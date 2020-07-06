@@ -59,16 +59,37 @@
    </div>
   </nav> -->
 
-        <nav class="navbar navbar-default">
+        <nav class="navbar nvbar-default" >
             <div class="container-fluid">
+                <a class="navbar-brand" href="#">Ask Here</a>
                 <ul class="nav navbar-nav">
+                    
                     <li class = "active"> <a href="{% url 'index' %}">Home</a> </li>
-                    <li> <a href="#">About</a> </li>
-                    <li> <a href="#">Notifications</a> </li>
-                    <li><div class="col-md-7">  <input type="text" class="form-control" placeholder="Search Question" style="width:350%;align:center"></div></li>
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         Topics
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'filter' topic_id=1 %}">C language</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'filter' topic_id=2 %}">C++</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'filter' topic_id=3 %}">Java</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'filter' topic_id=4 %}">Python</a>
+                        </div>
+                      </li> -->
+                      <li> <a href="#">About</a> </li>
+  
+                      <!-- <li><div class="col-md-7">  <input type="text" class="form-control" placeholder="Search Question" style="width:350%;align:center"></div></li> -->
                 </ul>
                 
                 <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="{% url 'post_question' %}">
+                            <div class="btn btn-warning" role="button"> Ask Question </div> 
+                        </a>
+                    </li>
                     {% if user.is_authenticated %}
                         <li> <a href="#">{{ user.username }} </a> </li>
                         <li> <a href="{% url 'logout' %}">logout </a> </li>
@@ -81,21 +102,19 @@
             </div>
         </nav>
 
-        <div class="row"> 
+        <!-- <div class="row"> 
             <div class="col-md-2" style="text-align: center;padding-top: 6px;">
                 <a href="{% url 'index' %}"> <img src="{% static  'ask1.png' %}"> </a> 
             </div> 
-            <!--<div class="col-md-7">  <input type="text" class="form-control" placeholder="Search Question"> </div> -->
+            <div class="col-md-7">  <input type="text" class="form-control" placeholder="Search Question"> </div>
 
-            <a href="{% url 'post_question' %}">
-                <div class="col-md-3 btn btn-warning" role="button"> Ask Question </div> 
-            </a>
-        </div>
+        </div>-->
 
         <div class="row">
-            <hr>
-            <div class="col-md-2"> 
+            <div class="col-md-3"> 
                 <ul style="list-style-type:none;">
+                    <li><a style="text-align: center;padding-top: 6px;" href="{% url 'index' %}"> <img src="{% static  'ask1.png' %}"> </a> </li>
+                    <li><br></li>
                     <li> <a href="{% url 'index' %}">Topics</a> </li>
                     <li><a href="{% url 'filter' topic_id=1 %}">C</a> </li><br>
                     <li><a href="{% url 'filter' topic_id=2 %}">C++</a></li><br>
@@ -103,10 +122,10 @@
                     <li><a href="{% url 'filter' topic_id=4 %}">Python</a></li><br>
                 </ul>
             </div>  
-            <div class="col-md-7 middle-display">
+            <div class="col-md-8 middle-display">
                 {% block content2 %}{% endblock %}
             </div>
-            <div class="col-md-3">
+            <div class="col-md-1">
                 {% block content3 %}{% endblock %}
             </div> 
              
